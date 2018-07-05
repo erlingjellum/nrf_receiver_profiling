@@ -21,9 +21,10 @@ We have made the following assumptions about the design of your radio:
 * RX_EN is called during init. Thus the Receiver is in RX state when the test start. If the Receiver is in any other state the output on the PIN will not be decoded correctly be the python script (the first pin toggle corresponds to an ADDRESS event)
 * The flow of tasks/events of the receiver is assumed to be:
 
-RADIO_RXEN (task) -> READY (event) -> (shortcut) -> RX(state) -> ADDRESS(event) -> PAYLOAD(event)
--> END(event) -> (shortcut) -> DISABLED. # PROCESSING OF PACKAGE # -> RADIO_RXEN(task)
 
+RX(state) -> ADDRESS(event) -> PAYLOAD(event) -> END(event) -> (shortcut) -> DISABLED. # PROCESSING OF PACKAGE # -> RADIO_RXEN(task)
+
+I.e. that Receiver starts in the RX state and calls RXEN once he is finished with receiving and processing a packet.
 
 HOW-IT-WORKS
 We generate PIN-toggles on PIN30 at the following events: READY, PAYLOAD, END. We assume that the system is in state RX
@@ -35,7 +36,6 @@ when we start the test. The output on PIN30 should be as following for when rece
             |                         |          |                   |
             |                         |          |                   |
 ____________|                         |__________|                   |________________
-
             |       RECEIVE_TIME      | OVERHEAD |  PACKET PROCESS   |
             |       (- Access Address | (CRC etc)|   (+ RAMP UP)     |
             |           and preamble) |          |                   |
