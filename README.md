@@ -36,6 +36,8 @@ when we start the test. The output on PIN30 should be as following for when rece
             |                         |          |                   |
             |                         |          |                   |
 ____________|                         |__________|                   |________________
+
+
             |       RECEIVE_TIME      | OVERHEAD |  PACKET PROCESS   |
             |       (- Access Address | (CRC etc)|   (+ RAMP UP)     |
             |           and preamble) |          |                   |
