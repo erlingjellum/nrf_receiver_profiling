@@ -31,16 +31,16 @@ We generate PIN-toggles on PIN30 at the following events: READY, PAYLOAD, END. W
 when we start the test. The output on PIN30 should be as following for when receiving ONE single packet:
 
 
-          ADDRESS                   PAYLOAD     END                 READY      
-            |_________________________|          |___________________|
-            |                         |          |                   |
-            |                         |          |                   |
+                    ADDRESS                   PAYLOAD     END                 READY      
+                      |_________________________|          |___________________|
+                      |                         |          |                   |
+                      |                         |          |                   |
           ____________|                         |__________|                   |________________
 
-
-            |       RECEIVE_TIME      | OVERHEAD |  PACKET PROCESS   |
-            |       (- Access Address | (CRC etc)|   (+ RAMP UP)     |
-            |           and preamble) |          |                   |
+          
+                      |       RECEIVE_TIME      | OVERHEAD |  PACKET PROCESS   |
+                      |       (- Access Address | (CRC etc)|   (+ RAMP UP)     |
+                      |           and preamble) |          |                   |
 
 We will provide a Python3 script that will automate the reading and caluclation with a SALAE LOGIC ANALYZER
 
