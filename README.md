@@ -46,7 +46,7 @@ when we start the test. The output on PIN30 should be as following for when rece
 
 We will provide a Python3 script that will automate the reading and caluclation with a SALAE LOGIC ANALYZER
 
-COMMON PITFALLS:
+POSSIBLE ERRORS:
 * GPIOTE[4], PPI[13], PPI[14], PPI[15] or PIN30 is already in use. 
 SOLUTION: Change the relevant values in this .c file
 * configuration of PPI or GPIOTE elsewhere in your project is overwriting the configuration made in this 
