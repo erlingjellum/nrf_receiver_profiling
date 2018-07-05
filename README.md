@@ -35,7 +35,7 @@ when we start the test. The output on PIN30 should be as following for when rece
             |_________________________|          |___________________|
             |                         |          |                   |
             |                         |          |                   |
-____________|                         |__________|                   |________________
+          ____________|                         |__________|                   |________________
 
 
             |       RECEIVE_TIME      | OVERHEAD |  PACKET PROCESS   |
