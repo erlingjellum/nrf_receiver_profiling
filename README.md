@@ -11,8 +11,8 @@ QUICK START:
 REQUIREMENTS: 
 * This .c file and it's .h file must lie within the project and the nrf.h must be on 
 the include path.
-* Must have at least 1 available GPIOTE TASK/EVENT Register. We will use OUT[3] as default
-* At least 3 available PPI-channels. We will use CH13, CH14, CH15 by default
+* Must have at least 1 available GPIOTE TASK/EVENT Register. We will use OUT[3] by default
+* At least 4 available PPI-channels. We will use CH12 CH13, CH14, CH15 by default
 * At least 1 available GPIO PIN. Default is PIN30
 
 
