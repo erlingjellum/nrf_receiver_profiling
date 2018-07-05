@@ -3,8 +3,10 @@
 how the receiver spends its time with a logical analyzer.
 
 QUICK START:
-Enable this module by calling "receiver_profiling_init() at the end of the initializion of the RADIO in main
-
+1. Copy the .c file and the .h file into your nRF51 project directory
+2. Enable this module by calling "receiver_profiling_init() at the end of the initializion of the RADIO in the main() of your project.
+3. Connect a logical analyzer to PIN30
+4. Run tests and watch the output on the UI of the Logical Analyzer
 
 REQUIREMENTS: 
 * This .c file and it's .h file must lie within the project and the nrf.h must be on 
