@@ -1,15 +1,15 @@
 # nrf_receiver_profiling
-/* The purpose of this module is to toggle pins on the nRF51 at certain events so that we can measure
-how the receiver spends its time with a logical analyzer.
+/* The purpose of this module is to toggle GPIO pins on the nRF51/nRF52 at certain events so that we can measure and profile the receiver. 
 
 QUICK START:
-1. Copy the .c file and the .h file into your nRF51 project directory
-2. Enable this module by calling "receiver_profiling_init() at the end of the initializion of the RADIO in the main() of your project.
+1. Copy the .c file and the .h file into your nRF DK project directory
+2. Enable this module by calling including receiver_profiling.h and running "receiver_profiling_init() at the end of the initializion of the RADIO in the main() of your project.
 3. Connect a logical analyzer to PIN30
 4. Run tests and watch the output on the UI of the Logical Analyzer
 
 REQUIREMENTS: 
-* This .c file and it's .h file must lie within the project and the nrf.h must be on 
+* This .c file and it's .h file must lie within the project. If using KEIL uVision you must also add both files to the your project
+* Include "receiver_profiling.h" in main.c
 the include path.
 * Must have at least 1 available GPIOTE TASK/EVENT Register. We will use OUT[3] by default
 * At least 4 available PPI-channels. We will use CH12 CH13, CH14, CH15 by default

@@ -3,7 +3,7 @@
 
 void receiver_profiling_init(void)
 {
-	//Initialize the parameters for choosing gpiote-output, pin and which ppi-channels to use
+	/* Initialzing the parameters. You are free to change them to whatever suits your setup */
 	uint8_t gpiote_output_channel = 3;
 	uint32_t gpio_output_pin = 30;
 	
@@ -12,12 +12,16 @@ void receiver_profiling_init(void)
 	uint8_t ppi_channel_3 = 14;
 	uint8_t ppi_channel_4 = 15;
 	
+	/* Initializing GPIOTE and PPI */
 	receiver_profiling_gpiote_setup(gpiote_output_channel, gpio_output_pin);
 	receiver_profiling_ppi_setup(ppi_channel_1, ppi_channel_2, ppi_channel_3, ppi_channel_4, gpiote_output_channel);
 	
+	/* The Radio will now generate events on the chosen PIN and you can
+	connect a Logical Analyzer to measure dead time and other variables */
 }
 
 
+/* Setup of the GPIOTE. */
 void receiver_profiling_gpiote_setup(uint8_t gpiote_output_channel, uint32_t gpio_output_pin)
 {
 	NRF_GPIOTE->CONFIG[gpiote_output_channel] = ((GPIOTE_CONFIG_MODE_Task << GPIOTE_CONFIG_MODE_Pos) & GPIOTE_CONFIG_MODE_Msk)
@@ -27,6 +31,7 @@ void receiver_profiling_gpiote_setup(uint8_t gpiote_output_channel, uint32_t gpi
 }
 
 
+/* Setup of the PPI */
 void receiver_profiling_ppi_setup(uint8_t ppi_channel_1, uint8_t ppi_channel_2, uint8_t ppi_channel_3,uint8_t ppi_channel_4, uint8_t gpiote_output_channel)
 {
 	NRF_PPI->CHENSET = ((1UL << ppi_channel_1) | (1UL << ppi_channel_2) | (1UL << ppi_channel_3) | (1UL << ppi_channel_4));
