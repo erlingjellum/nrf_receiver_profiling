@@ -24,7 +24,9 @@ We have made the following assumptions about the design of your radio:
 * The flow of tasks/events of the receiver is assumed to be:
 
 
-RX(state) -> ADDRESS(event) -> PAYLOAD(event) -> END(event) -> (shortcut) -> DISABLED. # PROCESSING OF PACKAGE # -> RADIO_RXEN(task)
+RX(state) -> ADDRESS(event) -> PAYLOAD(event) -> END(event) -> (shortcut) -> DISABLED (state). # PROCESSING OF PACKAGE # -> RADIO_RXEN(task)->RADIO_READY(event) -> (shortcut) -> RX(state)
+
+(Events give rise to pin toggles. Tasks are executed by your program. States are states of your Radio) 
 
 I.e. that Receiver starts in the RX state and calls RXEN once he is finished with receiving and processing a packet.
 
